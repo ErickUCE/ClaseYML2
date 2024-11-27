@@ -20,7 +20,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-      # AQUI SE DEBEN COLOCAR LAS DIRECCIONES IP DE LAS 2 INSTANCIAS
+          # Agregar las direcciones IP de las instancias EC2
           ssh-keyscan -H 3.80.109.76 >> ~/.ssh/known_hosts
           ssh-keyscan -H 54.165.123.67 >> ~/.ssh/known_hosts
 
@@ -45,4 +45,3 @@ jobs:
             sudo cp index.html /var/www/html/  # Copiar index.html al directorio de Nginx
             sudo systemctl restart nginx  # Reiniciar Nginx
           EOF
-
